@@ -1,0 +1,22 @@
+<p-table [value]="history" [autoLayout]="true" sortMode="single" rows="10" [paginator]="true">
+  <ng-template pTemplate="header">
+    <tr>
+      <th [pSortableColumn]="'transactionTimestamp'">Time
+        <p-sortIcon [field]="'transactionTimestamp'"></p-sortIcon>
+      </th>
+      <th>Tx ID</th>
+      <th [pSortableColumn]="'transactionType'">Type
+        <p-sortIcon [field]="'transactionType'"></p-sortIcon>
+      </th>
+      <th>Participant</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-tx>
+    <tr [ngClass]="isSystemTx(tx) ? 'system-tx' : null">
+      <td>{{tx.transactionTimestamp}}</td>
+      <td>{{tx.transactionId}}</td>
+      <td>{{tx.transactionType}}</td>
+      <td>{{tx.transactionInvoked}}</td>
+    </tr>
+  </ng-template>
+</p-table>

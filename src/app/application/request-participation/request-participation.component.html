@@ -1,0 +1,9 @@
+<button type="text" (click)="dialogVisible = true" pButton icon="fa-external-link-square"
+        label="Apply"></button>
+<p-dialog header="Application" [(visible)]="dialogVisible">
+  <app-employees [selectable]="true" (selected)="employeeSelected($event)"></app-employees>
+  <app-activities [selectable]="true" (selected)="activitySelected($event)"></app-activities>
+  <p-footer>
+    <button type="button" pButton icon="fa-check" label="Send" (click)="send()" [disabled]="!isValid()"></button>
+  </p-footer>
+</p-dialog>

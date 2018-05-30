@@ -1,0 +1,21 @@
+<h2><i class="fa fa-user" aria-hidden="true"></i>
+  Employees</h2>
+<p-table [value]="employees" [autoLayout]="true" [selectionMode]="selectable? 'single' : ''"
+         (onRowSelect)="rowSelected($event.data)" dataKey="email">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Email</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Credits</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-e>
+    <tr [pSelectableRow]="e">
+      <td>{{e.email}}</td>
+      <td>{{e.firstName}}</td>
+      <td>{{e.lastName}}</td>
+      <td>{{e.balance}}</td>
+    </tr>
+  </ng-template>
+</p-table>
